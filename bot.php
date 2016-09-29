@@ -44,6 +44,8 @@
         $numParticipants = count($chatData);
         if($numParticipants > 4)
             return 'Sorry, full party already';
+        if(substr($username, 0, 1) === '@')
+            $username = substr($username, 1);
         if(empty($username))
             return 'Having no username is shameful. I do not permit you to sign up without one.';
         if(in_array($username, $chatData))
