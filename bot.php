@@ -138,7 +138,7 @@
 
     $lowerSplitted = explode(' ', $msgRcvd);
     
-    if($lowerMsgRcvd == '/d2' || $lowerMsgRcvd == '/d2@'.$botName)
+    if($lowerMsgRcvd == '/d2' || $lowerMsgRcvd == '/d2@'.$botName || $lowerMsgRcvd == '/signmeupfam' || $lowerMsgRcvd == '/signmeupfam@'.$botName)
         sendMessage($chatID, registerParticipation($reqData['message']['chat']['id'], $reqData['message']['from']['username']));
     else if($lowerMsgRcvd == '/status' || $lowerMsgRcvd == '/status@'.$botName)
         sendMessage($chatID, status($chatID));
@@ -153,6 +153,8 @@
         sendMessage($chatID, addParticipant($chatID, $lowerSplitted[1]));
     else if($lowerSplitted[0] == '/terminate' || $lowerSplitted[0] == '/terminate@'.$botName)
         sendMessage($chatID, terminateParticipant($chatID, $lowerSplitted[1]));
+    else if($lowerSplitted[0] == '/_')
+        sendMessage($chatID, 'Stop it, get some help.');
 
 
     /*else 
